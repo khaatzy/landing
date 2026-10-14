@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar";
 import SequenceScroll from "@/components/SequenceScroll";
@@ -18,11 +18,18 @@ export default function Home() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [selectedBundle, setSelectedBundle] = useState("Tri-Active Protocol");
 
+  useEffect(() => {
+    // Graceful timeout so user can scroll immediately even on slow connections
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2200);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleSequenceLoaded = () => {
-    // Keep 100% visible for a moment then unveil smoothly
     setTimeout(() => {
       setIsLoading(false);
-    }, 600);
+    }, 500);
   };
 
   const handleOpenCart = (bundleName?: string) => {
