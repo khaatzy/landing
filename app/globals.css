@@ -1,16 +1,6 @@
-@import "tailwindcss";
-
-@theme {
-  --color-brand-bg: #0B211F;
-  --color-brand-surface: #0E2926;
-  --color-brand-card: #123330;
-  --color-brand-border: #1E4A44;
-  --color-brand-teal: #2DD4BF;
-  --color-brand-emerald: #10B981;
-  --color-brand-cyan: #06B6D4;
-  --color-brand-muted: #8FAEA8;
-  --font-sans: var(--font-outfit), system-ui, -apple-system, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #0B211F;
@@ -41,17 +31,17 @@ html, body {
 
 /* Glassmorphism utility classes */
 .glass-panel {
-  background: rgba(14, 41, 38, 0.7);
+  background: rgba(14, 41, 38, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(45, 90, 80, 0.4);
+  border: 1px solid rgba(45, 90, 80, 0.45);
 }
 
 .glass-panel-hover {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass-panel-hover:hover {
-  background: rgba(18, 51, 48, 0.88);
+  background: rgba(18, 51, 48, 0.9);
   border-color: rgba(45, 212, 191, 0.55);
   box-shadow: 0 0 35px rgba(45, 212, 191, 0.15);
   transform: translateY(-2px);
@@ -65,16 +55,4 @@ html, body {
   background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 25%, #2DD4BF 75%, #06B6D4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-subtle {
-  background: linear-gradient(180deg, #FFFFFF 0%, #94A3B8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Subtle background grid pattern */
-.bg-grid-pattern {
-  background-image: radial-gradient(rgba(45, 212, 191, 0.07) 1px, transparent 1px);
-  background-size: 32px 32px;
 }
